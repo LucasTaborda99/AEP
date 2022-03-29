@@ -101,6 +101,14 @@ $conn->exec($sql3);
 $conn->exec($sql4);
 */
 
+<<<<<<< HEAD
+=======
+// $sql1 = "INSERT INTO  user (user, senha)
+// VALUES ('Lucas', '1234');";
+// $conn->exec($sql1);
+
+ 
+>>>>>>> 38b89262071a71f3c6728662dbac4a9287bd1b62
 } catch(PDOException $e) {  
   echo "Falha ao conectar: " . $e->getMessage();
   // phpinfo();
