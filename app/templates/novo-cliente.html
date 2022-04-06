@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="/assets/img/logo.png" alt="">
+                    <h2>MEU STU<span class="danger">DIO</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="/dashboard" class="">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Painel</h3>
+                </a>
+                <a href="/clientes" class="active">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Clientes</h3>
+                </a>
+                <a href="/agendar">
+                    <span class="material-icons-sharp">event</span>
+                    <h3>Agendar</h3>
+                </a>
+                <a href="/salas">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Salas</h3>
+                </a>
+                <a href="/equipamentos">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Equipamentos</h3>
+                </a>
+                <a href="/configuracoes">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Configurações</h3>
+                </a>
+                <a href="/logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Sair</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Painel de Controle</h1>
+            <form action="/novo-cliente-cadastrar" method="post">
+                <h2>Cadastro de Clientes</h2>
+                <div class="inputs">
+                    <p>Insira o nome:</p>
+                    <input type="text" placeholder="Nome" name="nome" required>
+                    <p>Insira o RG:</p>
+                    <input type="text" placeholder="RG" name="rg" required>
+                    <p>Insira o CPF:</p>
+                    <input type="text" placeholder="CPF" name="cpf" required>
+                    <p>Insira a data de nascimento:</p>
+                    <input type="date" placeholder="Data de Nascimento" name="dataNasc" required>
+                    <p>Insira o e-mail:</p>
+                    <input type="email" placeholder="E-mail" name="email" required>
+                    <p>Insira o CEP:</p>
+                    <input type="text" placeholder="CEP" name="cep" id="cep" required>
+                    <p>Insira a rua:</p>
+                    <input type="text" placeholder="Rua" name="rua" id="logradouro" required>
+                    <p>Insira o número:</p>
+                    <input type="number" placeholder="Número" name="numero" id="numero" required>
+                    <p>Insira o bairro:</p>
+                    <input type="text" placeholder="Bairro" name="bairro" id="bairro" required>
+                    <p>Insira o UF:</p>
+                    <select id="estado" name="uf">
+                        <option selected disabled value="" id="estado">Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>            
+                    </select>
+                    <p>Insira a cidade:</p>
+                    <input type="text" placeholder="Cidade" name="cidade" id="cidade" required>
+                </div>
+                <button type="submit">Confirmar cadastro</button>
+            </form>
+        </main>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Olá, <b>Gustavo</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="/assets/img/profile-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="recent-updates">
+                <h2>Últimas Atualizações</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-2.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Gustavo Lobo</b> cadastrou um novo cliente.</p>
+                            <small class="text-muted">2 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-3.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Lucas Taborda</b> criou um novo agendamento.</p>
+                            <small class="text-muted">3 dias atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-4.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Carlos</b> cadastrou um novo equipamento.</p>
+                            <small class="text-muted">5 dias atrás</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sales-analytics">
+                <h2>Análise de Agendamentos</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">shopping_cart</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>GANHOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>AGENDAMENTOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="danger"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>NOVOS CLIENTES</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div>
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Novo Agendamento</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="/assets/js/dashboard.js"></script>
+    <script src="/assets/js/bucar-cep.js"></script>
+</body>
+</html>

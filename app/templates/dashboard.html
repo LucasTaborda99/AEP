@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="/assets/img/logo.png" alt="">
+                    <h2>MEU STU<span class="danger">DIO</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="/dashboard" class="active">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Painel</h3>
+                </a>
+                <a href="/clientes">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Clientes</h3>
+                </a>
+                <a href="/agendar">
+                    <span class="material-icons-sharp">event</span>
+                    <h3>Agendar</h3>
+                </a>
+                <a href="/salas">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Salas</h3>
+                </a>
+                <a href="/equipamentos">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Equipamentos</h3>
+                </a>
+                <a href="/configuracoes">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Configurações</h3>
+                </a>
+                <a href="/logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Sair</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Painel de Controle</h1>
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">
+                        stacked_line_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Ganho</h3>
+                            <h1>R$ {{valorGanho}},00</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>25%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Último mês</small>
+                </div>
+                <div class="income">
+                    <span class="material-icons-sharp">
+                        bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total de Agendamentos</h3>
+                            <h1>{{totalAgendamentos}}</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Último mês</small>
+                </div>
+                <div class="expenses">
+                    <span class="material-icons-sharp">
+                        analytics
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total de Clientes</h3>
+                            <h1>{{totalClientes}}</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Desde o Início</small>
+                </div>
+            </div>
+
+            <div class="recent-orders" id="ultimos-agendamentos">
+                <h2>Últimos Agendamentos</h2>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Nome Cliente</th>
+                            <th>N° Sala</th>
+                            <th>Data</th>
+                            <th>Horário</th>
+                            <th>Valor</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for agenda in agendar %}
+                        <tr>
+                            <td>{{agenda.nome}}</td>
+                            <td>{{agenda.id_sala}}</td>
+                            <td>{{agenda.data}}</td>
+                            <td>{{agenda.horario}}</td>
+                            <td>R$ {{agenda.valor}},00</td>
+                            <td class="primary">Detalhes</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/agendar" class="showall">Mostrar tudo</a>
+            </div>
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Olá, <b>{{nome}}</b></p>
+                        <small class="text-muted">{{cargo}}</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="/assets/img/profile-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="recent-updates">
+                <h2>Últimas Atualizações</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-2.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Gustavo Lobo</b> cadastrou um novo cliente.</p>
+                            <small class="text-muted">2 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-3.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Lucas Taborda</b> criou um novo agendamento.</p>
+                            <small class="text-muted">3 dias atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-4.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Carlos</b> cadastrou um novo equipamento.</p>
+                            <small class="text-muted">5 dias atrás</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sales-analytics">
+                <h2>Análise de Agendamentos</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">shopping_cart</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>GANHOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>AGENDAMENTOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="danger"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>NOVOS CLIENTES</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item add-product" onclick="window.location='/novo-agendamento'">
+                    <div>
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Novo Agendamento</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

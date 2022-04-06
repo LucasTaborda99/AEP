@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="/assets/img/logo.png" alt="">
+                    <h2>MEU STU<span class="danger">DIO</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="/dashboard">
+                    <span class="material-icons-sharp">grid_view</span>
+                    <h3>Painel</h3>
+                </a>
+                <a href="/clientes">
+                    <span class="material-icons-sharp">person_outline</span>
+                    <h3>Clientes</h3>
+                </a>
+                <a href="/agendar">
+                    <span class="material-icons-sharp">event</span>
+                    <h3>Agendar</h3>
+                </a>
+                <a href="/salas">
+                    <span class="material-icons-sharp">receipt_long</span>
+                    <h3>Salas</h3>
+                </a>
+                <a href="/equipamentos" class="active">
+                    <span class="material-icons-sharp">inventory</span>
+                    <h3>Equipamentos</h3>
+                </a>
+                <a href="/configuracoes">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Configurações</h3>
+                </a>
+                <a href="/logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Sair</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Painel de Controle</h1>
+            <div class="recent-orders">
+                <div class="pagina1">
+                    <h2>Equipamentos Cadastrados</h2>
+                    <h3>Página 1 / 1</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sala</th>
+                            <th>Nome</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Tipo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for equipamento in equipamentos %}
+                        <tr>
+                            <td>{{equipamento.id_sala}}</td>
+                            <td>{{equipamento.nome}}</td>
+                            <td>{{equipamento.marca}}</td>
+                            <td>{{equipamento.modelo}}</td>
+                            <td>{{equipamento.tipo}}</td>
+                            <td class="primary"><a class="table" href="#">Editar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pagina">
+                    <h3><span class="material-icons-sharp" id="voltar">chevron_left</span>     <span class="material-icons-sharp" id="proximo">chevron_right</span></h3>
+                </div>
+                <a href="/novo-equipamento" class="link">
+                    <div class="cadastrar">
+                        Cadastrar novo equipamento
+                    </div>
+                </a>
+            </div>
+            
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Olá, <b>Gustavo</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="/assets/img/profile-1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="recent-updates">
+                <h2>Últimas Atualizações</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-2.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Gustavo Lobo</b> cadastrou um novo cliente.</p>
+                            <small class="text-muted">2 minutos atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-3.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Lucas Taborda</b> criou um novo agendamento.</p>
+                            <small class="text-muted">3 dias atrás</small>
+                        </div>
+                    </div>
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="/assets/img/profile-4.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Carlos</b> cadastrou um novo equipamento.</p>
+                            <small class="text-muted">5 dias atrás</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sales-analytics">
+                <h2>Análise de Agendamentos</h2>
+                <div class="item online">
+                    <div class="icon">
+                        <span class="material-icons-sharp">shopping_cart</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>GANHOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item offline">
+                    <div class="icon">
+                        <span class="material-icons-sharp">local_mall</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>AGENDAMENTOS</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="danger"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item customers">
+                    <div class="icon">
+                        <span class="material-icons-sharp">person</span>
+                    </div>
+                    <div class="right">
+                        <div class="info">
+                            <h3>NOVOS CLIENTES</h3>
+                            <small class="text-muted">Últimas 24 horas</small>
+                        </div>
+                        <h5 class="success"></h5>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="item add-product">
+                    <div>
+                        <span class="material-icons-sharp">add</span>
+                        <h3>Novo Agendamento</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/dashboard.js"></script>
+</body>
+</html>

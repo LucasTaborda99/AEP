@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueci a senha</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Informe seu email</h2>
+        <form action="/envia-nova-senha" method="post">
+            <div class="input-field">
+                <input type="text" name="email" id="email" placeholder="alguma coisa">
+                <label for="nome">Email: </label>
+            </div>
+
+            <div class="center">
+                <button>Enviar</button>
+            </div>
+        </form>
+        <div class="links-uteis">
+            <a href="/cadastro">
+                <p>Ainda não sou cadastrado</p>
+            </a>
+            <a href="/inicio" class="volta-inicio">
+                <p>Voltar para o início</p>
+            </a>
+        </div>
+    </div>
+    <script type="text/javascript" src="/assets/js/vanilla-tilt.js"></script>
+    <script> VanillaTilt.init(document.querySelectorAll(".container"), {
+		max: 25,
+		speed: 400,
+        glare: true,
+        "max-glare": 1,
+	}); </script>
+</body>
+
+</html>

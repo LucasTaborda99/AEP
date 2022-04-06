@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="/assets/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar nova senha</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Alteração de senha</h2>
+        <form action="/valida-nova-senha" method="post" >
+
+            <div class="input-field">
+                <input type="text" name="email" id="email" placeholder="alguma coisa">
+                <label for="nome">Email: </label>
+            </div>
+
+            <div class="input-field">
+                <input type="password" name="senha" id="senha" placeholder="alguma coisa">
+                <label for="senha">Nova senha:</label>
+            </div>
+
+            <div class="input-field">
+                <input type="password" name="novasenha" id="novasenha" placeholder="alguma coisa">
+                <label for="senha">Confirme a nova senha:</label>
+            </div>
+
+            <div class="center">
+                <button onclick=validateMyForm()>Enviar</button>
+            </div>
+        </form>
+        <div class="links-uteis">
+            <a href="/cadastro">
+                <p>Ainda não sou cadastrado</p>
+            </a>
+            <a href="/inicio" class="volta-inicio">
+                <p>Voltar para o início</p>
+            </a>
+        </div>
+    </div>
+    <script src="/assets/js/validaSenha.js"></script>
+    <script src="/assets/js/validaForm.js"></script>
+    <script type="text/javascript" src="/assets/js/vanilla-tilt.js"></script>
+    <script> VanillaTilt.init(document.querySelectorAll(".container"), {
+		max: 25,
+		speed: 400,
+        glare: true,
+        "max-glare": 1,
+	}); </script>
+</body>
+</html>
